@@ -10,7 +10,7 @@ function computerPlay() {
 }
 
 // Takes a valid input from the user
-let playerSelection = prompt("Type in your figher: rock, paper or scissors").toLowerCase();
+// let playerSelection = prompt("Type in your figher: rock, paper or scissors").toLowerCase();
 
 // Play round and count them
 function playRound(playerSelection, computerSelection) {
@@ -52,12 +52,12 @@ function result(){
 }
 
 // Play the game for 5 rounds
-for (let count = 0; count < 5; count++) {
-    let computerSelection = computerPlay();
-    console.log("Computer plays:" + computerSelection);
+// for (let count = 0; count < 5; count++) {
+//     let computerSelection = computerPlay();
+//     console.log("Computer plays:" + computerSelection);
     
-    // Call function to play round of game
-    playRound(playerSelection, computerSelection);
-}
+//     // Call function to play round of game
+//     playRound(playerSelection, computerSelection);
+// }
 
 result();
