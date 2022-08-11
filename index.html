@@ -10,35 +10,38 @@
 </head>
 <body>
     <div class="header">
-        <div class="title">Rock Paper Scissors</div>
+        <div class="title">ROCK PAPER SCISSORS</div>
     </div>
 
     <div class="container-body">
+
+        <div class="score">
+            <div class="player-score">
+            </div>
+
+            <div class="computer-score">
+            </div>
+        </div>
 
         <div class="choose">
             Choose your weapon!
         </div>
         
         <div class="buttons">
-            <div class="weapon">
-                ROCK
-            </div>
-
-            <div class="weapon">
-                PAPER
-            </div>
-
-            <div class="weapon">
-                SCISSORS
-            </div>
+            <input type="button" value="rock" id="button"></input>
+            <input type="button" value="paper" id="button"></input>
+            <input type="button" value="scissors" id="button"></input>
         </div>
 
-        <div class="score">
-            SCORE:
+        <div class="result">
         </div>
+
+        <div class="final-result">
+        </div>
+
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
     
 </body>
 </html>
