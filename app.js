@@ -1,5 +1,5 @@
-var playerScore = 0;
-var computerScore = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 const buttons = document.querySelectorAll('#button');
 
@@ -62,10 +62,37 @@ function playRound(playerSelection) {
     return
 }
 
+document.querySelector(".player-score").innerHTML = `Player Score: ${playerScore}`;
+document.querySelector(".computer-score").innerHTML = `Computer Score: ${playerScore}`;
+
 buttons.forEach(button => {
     button.addEventListener('click', function(){
         playRound(button.value)
     })
 })
+
+const restart = document.querySelector('.restart');
+restart.addEventListener('click', restartGame);
+
+function restartGame() {
+    playerScore = 0;
+    computerScore = 0;
+    document.querySelector('.player-score').textContent = `Player Score: ${playerScore}`;
+    document.querySelector('.computer-score').textContent = `Computer Score: ${playerScore}`;
+    document.querySelector('.result').innerHTML = "";
+    document.querySelector('.final-result').innerHTML = "";
+}
+
+// function () {
+//     playerScore = 0;
+//     computerScore = 0;
+//     document.querySelector('.player-score').textContent = `Player Score: ${playerScore}`;
+//     document.querySelector('.computer-score').textContent = `Computer Score: ${playerScore}`;
+// });
+
+
+
+
+
 
 
