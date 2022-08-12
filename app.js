@@ -3,6 +3,8 @@ let computerScore = 0;
 
 const buttons = document.querySelectorAll('#button');
 
+
+
 // Return random computer item - Rock / Paper / Scissors
 function computerPlay() {
     let item = ["rock", "paper", "scissors"]
@@ -34,7 +36,9 @@ function playRound(playerSelection) {
 
         if (playerScore == 5) {
             finalResult = ("Player wins the game! Reload the page to play again.")
-            disableButtons()
+            disableButtons();
+            // showRestart();
+            restart.style.display = '';
         }
     }
 
@@ -48,7 +52,9 @@ function playRound(playerSelection) {
 
         if (computerScore == 5) {
             finalResult = ("Computer wins the game! Reload the page to play again")
-            disableButtons()
+            disableButtons();
+            // showRestart();
+            restart.style.display = '';
         }
     }
 
@@ -71,8 +77,18 @@ buttons.forEach(button => {
     })
 })
 
+
 const restart = document.querySelector('.restart');
 restart.addEventListener('click', restartGame);
+restart.style.display = 'none';
+
+function showRestart() {
+    if (playerScore == 5 || computerScore == 5) {
+        
+    } else {
+        restart.disabled = true;
+    }
+}
 
 function restartGame() {
     playerScore = 0;
@@ -81,14 +97,14 @@ function restartGame() {
     document.querySelector('.computer-score').textContent = `Computer Score: ${playerScore}`;
     document.querySelector('.result').innerHTML = "";
     document.querySelector('.final-result').innerHTML = "";
+    restart.style.display = 'none';
+
+    buttons.forEach(elem => {
+        elem.disabled = false
+    })
+
 }
 
-// function () {
-//     playerScore = 0;
-//     computerScore = 0;
-//     document.querySelector('.player-score').textContent = `Player Score: ${playerScore}`;
-//     document.querySelector('.computer-score').textContent = `Computer Score: ${playerScore}`;
-// });
 
 
 

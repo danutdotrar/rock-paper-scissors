@@ -79,3 +79,10 @@ body {
     display: flex;
     justify-content: center;
 }
+
+/* .restart {
+    z-index: 999;
+    position: fixed;
+    padding: 50px 80px;
+    border-radius: 5px;
+} */
