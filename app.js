@@ -1,5 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
+let playerChoice = "?";
+let computerChoice = "?";
 
 const buttons = document.querySelectorAll('#button');
 
@@ -7,7 +9,7 @@ const buttons = document.querySelectorAll('#button');
 
 // Return random computer item - Rock / Paper / Scissors
 function computerPlay() {
-    let item = ["rock", "paper", "scissors"]
+    let item = ["Rock", "Paper", "Scissors"]
     return item[Math.floor(Math.random() * item.length)]
 }
 
@@ -24,18 +26,19 @@ function playRound(playerSelection) {
     let playerScoreView = ""
     let computerScoreView = ""
     let finalResult = ""
+    let playerChoice = "?"
+    let computerChoice = "?"
     
     //Player wins
-    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
-       (playerSelection == 'scissors' && computerSelection == 'paper') ||
-       (playerSelection == 'paper' && computerSelection =='rock')) {
+    if ((playerSelection == 'Rock' && computerSelection == 'Scissors') ||
+       (playerSelection == 'Scissors' && computerSelection == 'Paper') ||
+       (playerSelection == 'Paper' && computerSelection =='Rock')) {
 
         playerScore += 1
-
         result = ('Player win! ' + playerSelection + ' beats ' + computerSelection)
 
         if (playerScore == 5) {
-            finalResult = ("Player wins the game! Reload the page to play again.")
+            finalResult = ("Player wins the game! Press Restart to play again.")
             disableButtons();
             restart.style.display = '';
         }
@@ -50,31 +53,42 @@ function playRound(playerSelection) {
         result = ('Player lose! ' + computerSelection + ' beats ' + playerSelection)
 
         if (computerScore == 5) {
-            finalResult = ("Computer wins the game! Reload the page to play again")
+            finalResult = ("Computer wins the game! Press Restart to play again.")
             disableButtons();
             restart.style.display = '';
         }
     }
 
-    playerScoreView = ("Player Score: " + playerScore)
-    computerScoreView = ("Computer score: " + computerScore)
+    playerScoreView = (playerScore)
+    computerScoreView = (computerScore)
+
+    playerChoice = (playerSelection)
+    computerChoice = (computerSelection)
 
     document.querySelector('.result').textContent = result
     document.querySelector('.player-score').textContent = playerScoreView
     document.querySelector('.computer-score').textContent = computerScoreView
     document.querySelector('.final-result').textContent = finalResult
+    document.querySelector('.player-choice').textContent = playerChoice
+    document.querySelector('.computer-choice').textContent = computerChoice
     return
 }
 
-document.querySelector(".player-score").innerHTML = `Player Score: ${playerScore}`;
-document.querySelector(".computer-score").innerHTML = `Computer Score: ${playerScore}`;
+// Show current score
+document.querySelector(".player-score").innerHTML = `${playerScore}`;
+document.querySelector(".computer-score").innerHTML = `${playerScore}`;
+
+// Show current choice
+document.querySelector(".player-choice").innerHTML = `${playerChoice}`;
+document.querySelector(".computer-choice").innerHTML = `${computerChoice}`;
+
+
 
 buttons.forEach(button => {
     button.addEventListener('click', function(){
         playRound(button.value)
     })
 })
-
 
 // Select the restart button and add event to it
 const restart = document.querySelector('.restart');
@@ -87,9 +101,9 @@ restart.style.display = 'none';
 function restartGame() {
     playerScore = 0;
     computerScore = 0;
-    document.querySelector('.player-score').textContent = `Player Score: ${playerScore}`;
-    document.querySelector('.computer-score').textContent = `Computer Score: ${playerScore}`;
-    document.querySelector('.result').innerHTML = "";
+    document.querySelector('.player-score').textContent = `${playerScore}`;
+    document.querySelector('.computer-score').textContent = `${playerScore}`;
+    document.querySelector('.result').innerHTML = "Choose your weapon!";
     document.querySelector('.final-result').innerHTML = "";
     restart.style.display = 'none';
 
