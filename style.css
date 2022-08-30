@@ -1,6 +1,10 @@
+:root {
+    --header-color: rgb(94, 0, 117);
+  }
+
 body {
     margin: 0;
-    height: 100vw;
+    max-height: 100vw;
     background-color: skyblue;
     font-family: 'Ubuntu', sans-serif;
     letter-spacing: 1px;
@@ -8,9 +12,9 @@ body {
 }
 
 .header {
-    padding: 50px;
+    padding: 35px;
     max-width: 100vw;
-    background-color: rgb(94, 0, 117);
+    background-color: var(--header-color);
     display: flex;
     justify-content: center;
 }
@@ -46,7 +50,7 @@ body {
 
 #button svg{
     width: 100px;
-    height: 100px;
+    height: auto;
 }
 
 
@@ -102,6 +106,7 @@ body {
     font-weight: 700;
 }
 .choice {
+    padding: 25px;
     display: flex;
     justify-content: space-between;
     gap: 120px;
@@ -123,8 +128,12 @@ body {
 
 }
 
-.restart-btn {
-    padding: 50px;
+.restart-final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
 }
 
 .restart {
@@ -133,7 +142,7 @@ body {
     background: linear-gradient(to right, gold, darkorange);
     border: 1px solid darkgoldenrod;
 	border-radius: 50%;
-    padding: 20px;
+    padding: 25px;
     box-shadow: 0px 0 0 5px rgba(0, 0, 0, 0.2);
 	transition: 0.5s;
     display: flex;
@@ -170,5 +179,71 @@ body {
 .final-result {
     display: flex;
     justify-content: center;
-    padding: 25px;
+    padding: 50px;
+}
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: black;
+    text-align: center;
+    font-size: 30px;
+    user-select: none;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-text {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6;
+}
+  
+.overlay.active {
+    display: block;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100vw;
+    padding: 10px;
+    font-size: 20px;
+  }
+
+.fa-github {
+    color: var(--header-color);;
+    font-size: 24px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
 }

@@ -45,7 +45,7 @@ function playRound(playerSelection) {
     }
 
     else if (playerSelection == computerSelection) {
-        result = ('It\'s a tie! You both choose ' + playerSelection)
+        result = ('It\'s a tie! You both chose ' + playerSelection)
     }
 
     else {
@@ -101,8 +101,10 @@ restart.style.display = 'none';
 function restartGame() {
     playerScore = 0;
     computerScore = 0;
-    document.querySelector('.player-score').textContent = `${playerScore}`;
-    document.querySelector('.computer-score').textContent = `${playerScore}`;
+    document.querySelector('.player-score').innerHTML = `${playerScore}`;
+    document.querySelector('.computer-score').innerHTML = `${playerScore}`;
+    document.querySelector('.player-choice').innerHTML = "?";
+    document.querySelector('.computer-choice').innerHTML = "?";
     document.querySelector('.result').innerHTML = "Choose your weapon!";
     document.querySelector('.final-result').innerHTML = "";
     restart.style.display = 'none';
