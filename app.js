@@ -13,11 +13,11 @@ function computerPlay() {
     return item[Math.floor(Math.random() * item.length)]
 }
 
-function disableButtons() {
-    buttons.forEach(elem => {
-        elem.disabled = true
-    })
-}
+// function disableButtons() {
+//     buttons.forEach(elem => {
+//         elem.disabled = true
+//     })
+// }
 
 // Play round and count them
 function playRound(playerSelection) {
@@ -29,7 +29,7 @@ function playRound(playerSelection) {
     let playerChoice = "?"
     let computerChoice = "?"
     
-    //Player wins
+    
     if ((playerSelection == 'Rock' && computerSelection == 'Scissors') ||
        (playerSelection == 'Scissors' && computerSelection == 'Paper') ||
        (playerSelection == 'Paper' && computerSelection =='Rock')) {
@@ -37,9 +37,11 @@ function playRound(playerSelection) {
         playerScore += 1
         result = ('Player win! ' + playerSelection + ' beats ' + computerSelection)
 
+        //Player wins
         if (playerScore == 5) {
-            finalResult = ("Player wins the game! Press Restart to play again.")
-            disableButtons();
+            finalResult = ("You won!");
+            // disableButtons();
+            openModal();
             restart.style.display = '';
         }
     }
@@ -53,8 +55,9 @@ function playRound(playerSelection) {
         result = ('Player lose! ' + computerSelection + ' beats ' + playerSelection)
 
         if (computerScore == 5) {
-            finalResult = ("Computer wins the game! Press Restart to play again.")
-            disableButtons();
+            finalResult = ("You lost!");
+            // disableButtons();
+            openModal();
             restart.style.display = '';
         }
     }
@@ -73,6 +76,11 @@ function playRound(playerSelection) {
     document.querySelector('.computer-choice').textContent = computerChoice
     return
 }
+
+// Modal
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+
 
 // Show current score
 document.querySelector(".player-score").innerHTML = `${playerScore}`;
@@ -95,8 +103,19 @@ const restart = document.querySelector('.restart');
 restart.addEventListener('click', restartGame);
 
 // hide the Restart button
-restart.style.display = 'none';
+// restart.style.display = 'none';
 
+// Show the modal & overlay
+function openModal() {
+    modal.classList.add('active');
+    overlay.classList.add('active');
+}
+
+// Close the modal & overlay
+function closeModal() {
+    modal.classList.remove('active');
+    overlay.classList.remove('active')
+}
 
 function restartGame() {
     playerScore = 0;
@@ -107,12 +126,9 @@ function restartGame() {
     document.querySelector('.computer-choice').innerHTML = "?";
     document.querySelector('.result').innerHTML = "Choose your weapon!";
     document.querySelector('.final-result').innerHTML = "";
-    restart.style.display = 'none';
-
-    buttons.forEach(elem => {
-        elem.disabled = false
-    })
-
+    modal.classList.remove('active');
+    overlay.classList.remove('active')
+    // restart.style.display = 'none';
 }
 
 
