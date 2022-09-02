@@ -35,7 +35,7 @@ function playRound(playerSelection) {
        (playerSelection == 'Paper' && computerSelection =='Rock')) {
 
         playerScore += 1
-        result = ('Player win! ' + playerSelection + ' beats ' + computerSelection)
+        result = ('Player wins! ' + playerSelection + ' beats ' + computerSelection)
 
         //Player wins
         if (playerScore == 5) {
@@ -52,7 +52,7 @@ function playRound(playerSelection) {
 
     else {
         computerScore += 1
-        result = ('Player lose! ' + computerSelection + ' beats ' + playerSelection)
+        result = ('Player loses! ' + computerSelection + ' beats ' + playerSelection)
 
         if (computerScore == 5) {
             finalResult = ("You lost!");
