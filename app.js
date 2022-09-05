@@ -13,12 +13,6 @@ function computerPlay() {
     return item[Math.floor(Math.random() * item.length)]
 }
 
-// function disableButtons() {
-//     buttons.forEach(elem => {
-//         elem.disabled = true
-//     })
-// }
-
 // Play round and count them
 function playRound(playerSelection) {
     let computerSelection = computerPlay();
@@ -102,9 +96,6 @@ buttons.forEach(button => {
 const restart = document.querySelector('.restart');
 restart.addEventListener('click', restartGame);
 
-// hide the Restart button
-// restart.style.display = 'none';
-
 // Show the modal & overlay
 function openModal() {
     modal.classList.add('active');
@@ -124,11 +115,10 @@ function restartGame() {
     document.querySelector('.computer-score').innerHTML = `${playerScore}`;
     document.querySelector('.player-choice').innerHTML = "?";
     document.querySelector('.computer-choice').innerHTML = "?";
-    document.querySelector('.result').innerHTML = "Choose your weapon!";
+    document.querySelector('.result').innerHTML = "Choose your weapon! First to 5 wins!";
     document.querySelector('.final-result').innerHTML = "";
     modal.classList.remove('active');
     overlay.classList.remove('active')
-    // restart.style.display = 'none';
 }
 
 
